@@ -2,7 +2,11 @@
   <div class="card">
     <div class="card-header pb-0">
       <h6>Kategori table</h6>
+      <div class="d-flex align-items-center">
+      <argon-button color="success" size="sm" class="ms-auto">Add</argon-button>
     </div>
+    </div>
+    
     <div class="card-body px-0 pt-0 pb-2">
       <div class="table-responsive p-0">
         <table class="table align-items-center mb-0">
@@ -36,12 +40,20 @@
                 <span class="text-secondary text-xs font-weight-bold">{{ kategori.created_at }}</span>
               </td>
               <td class="align-middle">
+                <argon-button color="success" size="sm" variant="contained">Edit</argon-button> | 
+                <argon-button color="danger" size="sm" variant="contained">Delete</argon-button>
+                <!-- <a
+                  href="javascript:;"
+                  class="text-secondary font-weight-bold text-xs"
+                  data-toggle="tooltip"
+                  data-original-title="Edit user"
+                >Edit</a> | 
                 <a
                   href="javascript:;"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
-                >Edit</a>
+                >Delete</a> -->
               </td>
                 
                 <!-- <td class="text-center">
@@ -59,6 +71,7 @@
 <script>
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
+import ArgonButton from "@/components/ArgonButton.vue";
 export default {
 
   setup() {
@@ -104,7 +117,10 @@ export default {
             kategoriDelete
         }
 
-    }
+    },
+    components: {
+    ArgonButton,
+  },
 
   // name: "kategori-table",
 };
